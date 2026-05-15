@@ -1,11 +1,10 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - TravelPlan</title>
+  <title>Dashboard - Plan&Go</title>
   <link rel="stylesheet" href="{% static 'accounts/style.css' %}" />
   <link
     rel="stylesheet"
@@ -14,19 +13,27 @@
 </head>
 <body class="dashboard-body">
 
+  {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <div class="dashboard" id="dashboard">
 
     <!-- MENU LATERAL -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-top">
-        <h2 class="logo-text">TravelPlan</h2>
+        <h2 class="logo-text">Plan&Go</h2>
         <button class="toggle-sidebar" id="toggleSidebar" type="button">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
 
       <nav class="sidebar-nav">
-        <a href="#" class="active">
+        <a href="{% url 'dashboard' %}" class="active">
           <i class="fa-solid fa-house"></i>
           <span>Dashboard</span>
         </a>
@@ -50,7 +57,7 @@
           <i class="fa-solid fa-ticket"></i>
           <span>Reservas</span>
         </a>
-        <a href="#">
+        <a href="{% url 'settings' %}">
           <i class="fa-solid fa-gear"></i>
           <span>Definições</span>
         </a>
@@ -59,8 +66,42 @@
 
     <!-- CONTEÚDO -->
     <main class="main-content">
+
+      <!-- BARRA SUPERIOR COM AVATAR -->
+      <div class="topbar">
+        <div class="user-menu">
+          <button class="user-icon" id="userMenuToggle" type="button" aria-label="Abrir menu da conta">
+            {% if user.profile.avatar %}
+              <img src="{{ user.profile.avatar.url }}" alt="Avatar">
+            {% else %}
+              <span class="user-initials">{{ user.profile.iniciais }}</span>
+            {% endif %}
+          </button>
+
+          <div class="user-dropdown" id="userDropdown" hidden>
+            <div class="user-info">
+              <div class="user-avatar-big">
+                {% if user.profile.avatar %}
+                  <img src="{{ user.profile.avatar.url }}" alt="Avatar">
+                {% else %}
+                  <span>{{ user.profile.iniciais }}</span>
+                {% endif %}
+              </div>
+              <strong>{{ user.first_name|default:user.username }}</strong>
+              <span>{{ user.email }}</span>
+            </div>
+            <a href="{% url 'settings' %}" class="dropdown-link">
+              <i class="fa-solid fa-gear"></i> Definições da conta
+            </a>
+            <a href="{% url 'logout' %}" class="dropdown-link danger">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair
+            </a>
+          </div>
+        </div>
+      </div>
+
       <section class="welcome-section">
-        <h1>Olá, João 👋</h1>
+        <h1>Olá, {{ user.first_name|default:user.username }} 👋</h1>
         <p>Pronto para organizares a tua próxima aventura?</p>
       </section>
 
@@ -167,6 +208,6 @@
     </main>
   </div>
 
-  <script src="dashboard.js"></script>
+  <script src="{% static 'accounts/dashboard.js' %}"></script>
 </body>
 </html>
