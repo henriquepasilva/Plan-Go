@@ -1,0 +1,73 @@
+# =============================================
+# Python
+# =============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Distribuição / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# =============================================
+# Django
+# =============================================
+# Base de dados local (cada developer tem a sua)
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+
+# Ficheiros enviados por utilizadores (avatares, etc.)
+media/
+
+# Ficheiros estáticos coletados em produção
+staticfiles/
+/static/
+
+# Ficheiros de configuração com segredos
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# =============================================
+# Editores e IDEs
+# =============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =============================================
+# Sistema operativo
+# =============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================================
+# Node / Frontend (caso adiciones no futuro)
+# =============================================
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# =============================================
+# Outros
+# =============================================
+*.bak
+*.tmp
