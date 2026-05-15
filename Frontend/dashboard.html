@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - TravelPlan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard" id="dashboard">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <h2 class="logo-text">TravelPlan</h2>
+        <button class="toggle-sidebar" id="toggleSidebar" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">
+          <i class="fa-solid fa-house"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-plane"></i>
+          <span>Viagens</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Itinerário</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Orçamento</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Checklist</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-ticket"></i>
+          <span>Reservas</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-gear"></i>
+          <span>Definições</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="main-content">
+      <section class="welcome-section">
+        <h1>Olá, João 👋</h1>
+        <p>Pronto para organizares a tua próxima aventura?</p>
+      </section>
+
+      <section class="cards">
+        <div class="card highlight-card">
+          <h3>Próxima viagem</h3>
+          <p>Paris, França</p>
+          <span>12 Jul — 18 Jul</span>
+        </div>
+
+        <div class="card">
+          <h3>Dias em falta</h3>
+          <p class="big-number">24</p>
+          <span>até à partida</span>
+        </div>
+
+        <div class="card">
+          <h3>Orçamento</h3>
+          <p>540€ / 900€</p>
+          <span>60% usado</span>
+        </div>
+
+        <div class="card">
+          <h3>Progresso</h3>
+          <p>70%</p>
+          <span>planeamento concluído</span>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="panel large-panel">
+          <div class="panel-header">
+            <h2>Viagens futuras</h2>
+          </div>
+
+          <div class="item-row">
+            <div>
+              <strong>Paris, França</strong>
+              <p>12 Jul — 18 Jul</p>
+            </div>
+            <span class="status progress">Planeamento</span>
+          </div>
+
+          <div class="item-row">
+            <div>
+              <strong>Roma, Itália</strong>
+              <p>03 Set — 07 Set</p>
+            </div>
+            <span class="status done">Concluído</span>
+          </div>
+
+          <div class="item-row">
+            <div>
+              <strong>Tóquio, Japão</strong>
+              <p>15 Nov — 28 Nov</p>
+            </div>
+            <span class="status progress">Planeamento</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Checklist</h2>
+          </div>
+
+          <div class="check-item">✅ Reservar voo</div>
+          <div class="check-item">✅ Reservar hotel</div>
+          <div class="check-item">⏳ Fazer seguro</div>
+          <div class="check-item">⏳ Preparar mala</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Reservas</h2>
+          </div>
+
+          <div class="booking-item">
+            <i class="fa-solid fa-plane"></i>
+            <div>
+              <strong>Voo TAP</strong>
+              <p>Lisboa → Paris</p>
+            </div>
+          </div>
+
+          <div class="booking-item">
+            <i class="fa-solid fa-hotel"></i>
+            <div>
+              <strong>Hotel Lumière</strong>
+              <p>6 noites confirmadas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Notas</h2>
+          </div>
+
+          <div class="note-box">Levar casaco leve.</div>
+          <div class="note-box">Comprar bilhetes com antecedência.</div>
+          <div class="note-box">Ver restaurantes perto do hotel.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
